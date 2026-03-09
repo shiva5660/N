@@ -24,8 +24,8 @@ chmod +x nexus-network-amd nexus-network-intel nexus-network-global
 rm -rf nex
 
 # ---- Ask for node number ----
-read -p "Enter node number (line number from large_nodes.txt): " n
-NODE_ID=$(sed -n "${n}p" large_nodes.txt)
+read -p "Enter node number (line number from nodes.txt): " n
+NODE_ID=$(sed -n "${n}p" nodes.txt)
 if [ -z "$NODE_ID" ]; then
   echo "Invalid selection. Exiting."
   exit 1
