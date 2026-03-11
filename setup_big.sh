@@ -4,7 +4,7 @@ set -e
 rm -rf nex
 rm -rf nodes.txt
 rm -rf nexus-network-amd
-rm -rf nexus-network-intel
+rm -rf nexus-network-intel-big
 rm -rf nexus-network-global
 rm -rf node_runner.sh
 
@@ -14,11 +14,11 @@ git clone --depth 1 https://github.com/shiva5660/nex.git
 # ---- Move required files ----
 mv nex/nodes.txt .
 mv nex/nexus-network-amd .
-mv nex/nexus-network-intel .
+mv nex/nexus-network-intel-big .
 mv nex/nexus-network-global .
 
 # ---- Make binaries executable ----
-chmod +x nexus-network-amd nexus-network-intel nexus-network-global
+chmod +x nexus-network-amd nexus-network-intel-big nexus-network-global
 
 # ---- Cleanup ----
 rm -rf nex
@@ -73,8 +73,8 @@ SCRIPT_DIR="\$(cd "\$(dirname "\$0")" && pwd)"
 NODE_NUM="$n"
 NODE_ID="$NODE_ID"
 
-BOT1_TOKEN="8749364164:AAFaVifCSDVsHeEcnmMZXesHM9qyeOtEtV8"
-BOT2_TOKEN="8304064824:AAGHxAdCPzCplBhKHlC1rp_-M6Ws6RVj2V4"
+BOT1_TOKEN="8601088396:AAFlT4Vh3hX9_mAY99rA0ImKcFAb981qUWg"
+BOT2_TOKEN="8503384710:AAE49RsvcRVUO0CO43sgMYwDWGGkSutOx-g"
 CHAT_ID="5765264116"
 
 RETRY_WAIT=900
@@ -110,7 +110,7 @@ echo "Detected CPU: \$CPU_VENDOR"
 if [[ "\$CPU_VENDOR" == "AuthenticAMD" ]]; then
   CPU_BINARY="\$SCRIPT_DIR/nexus-network-amd"
 elif [[ "\$CPU_VENDOR" == "GenuineIntel" ]]; then
-  CPU_BINARY="\$SCRIPT_DIR/nexus-network-intel"
+  CPU_BINARY="\$SCRIPT_DIR/nexus-network-intel-big"
 else
   CPU_BINARY="\$SCRIPT_DIR/nexus-network-global"
   echo "Unknown CPU: \$CPU_VENDOR — defaulting to global"
